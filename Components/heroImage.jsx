@@ -1,11 +1,15 @@
 "use client"
 
-const HeroImage = () => {
+import { forwardRef } from "react"
+
+const HeroImage = forwardRef(function HeroImage(props,ref) {
     const clipPath =
         "M -2256 -13 L 2359 -9 C 2485 21 2552 88 2551 207 L 2448 4600 C 2448 4700 2383 4833 2143 4810 L -4965 4786 C -5093 4791 -5111 4685 -5111 4606 L -4765 2450 C -4753 2387 -4734 2325 -4621 2318 L -3158 2174 C -3070 2168 -3001 2117 -2982 2036 L -2499 103 C -2472 34 -2402 -22 -2266 -13"
 
     return (
-        <div className={`w`}>
+        <div
+        ref={ref}
+        className={`w`}>
             <div className={`lg:w-[50rem] -translate-x-50 scale-y-108 lg:mt-10 `}>
                 <svg 
                 className={`w-full h-auto `}
@@ -36,6 +40,6 @@ const HeroImage = () => {
             </div>
         </div>
     )
-}
+});
 
 export default HeroImage;

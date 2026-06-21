@@ -1,12 +1,16 @@
 "use client"
 import AvatarStack from './avatars'
 
-const HeroTextBottom = () => {
+import { forwardRef } from 'react'
+
+const HeroTextBottom = forwardRef(function HeroTextBottom(props,ref) {
     const outlinePath =
         "M-18 1062 31-2822C23-2943 94-3029 206-3014L5793-1204C5867-1225 5983-1013 5912-914L5608 1117C5581 1349 5381 1395 5150 1380L298 1315C158 1326 7 1226-5 1062"
 
     return (
-        <div className={`lg:w-[22rem]  lg:transform lg:translate-x-[6.2rem] lg:translate-y-[-6.5rem] scale-y-[0.75]  `}>
+        <div
+        ref={ref}
+        className={`lg:w-[22rem]  lg:transform lg:translate-x-[6.2rem] lg:translate-y-[-6.5rem] scale-y-[0.75]  `}>
             <div className="relative">
                 <svg
                     className={`self-start w-full h-auto `}
@@ -27,7 +31,7 @@ const HeroTextBottom = () => {
                         500+ <br />
                     </p>
                     <p className="font-bold lg:text-2xl ml-10">
-                        Top realtors
+                        Top investors
                     </p>
 
                     <div className='ml-10 mt-2'>
@@ -40,6 +44,6 @@ const HeroTextBottom = () => {
 
 
     )
-}
+});
 
 export default HeroTextBottom
