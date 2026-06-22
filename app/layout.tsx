@@ -20,8 +20,8 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="min-h-full flex flex-col">
-        <Navbar />
+      <body className="min-h-full ">
+        <Navbar  />
         {children}
         </body>
     </html>

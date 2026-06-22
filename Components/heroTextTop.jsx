@@ -16,7 +16,7 @@ const HeroTextTop = forwardRef(function HeroTextTop(props,ref) {
         </svg>
 
         <div className='absolute inset-0 flex flex-col justify center mx-8'>
-          <h1 className='lg:text-6xl py-5 font-bold mt-3'>
+          <h1 className='lg:text-6xl py-5 font-[900] mt-3'>
             Become <span className='bg-white rounded-sm px-2 py-0'> a farmer</span> without <span className=' ]'>Land</span>. 
           </h1>
           <p className='lg:text-xl text-[black]/70 transform lg:px-5'>

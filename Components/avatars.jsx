@@ -20,9 +20,9 @@ export default function AvatarStack() {
         >
           <Image
             src={avatar}
-            alt=""
-            width={10}
-            height={10}
+            alt="farmImage"
+            width={300}
+            height={300}
             className="rounded-full w-10 h-10 object-fit"
           />
         </div>
