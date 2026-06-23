@@ -1,5 +1,6 @@
 import { forwardRef } from 'react'
 import Image from 'next/image';
+import Marquee from './Marquee';
 
 const RevealedSection = forwardRef(function RevealedSection(props, ref) {
     return (
@@ -33,6 +34,8 @@ const RevealedSection = forwardRef(function RevealedSection(props, ref) {
                     The next generation doesn't need to inherit farmland to participate in its value.
                 </p>
             </div>
+
+            
 
         </div>
     )

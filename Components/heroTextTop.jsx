@@ -23,7 +23,7 @@ const HeroTextTop = forwardRef(function HeroTextTop(props,ref) {
             Invest in agricultural projects <br/> and earn returns without owning <br/> land or managing a farm.
           </p>
 
-          <button className='self-start px-3 font-bold lg:text:sm rounded-md py-2 my-2 mx-3 bg-white '>
+          <button className='self-start px-3 font-bold lg:text:sm rounded-md py-2 my-2 mx-3 bg-white cursor-none hover:scale-105  transition-transform ease-in  duration:3000 '>
             Get Started
           </button>
         </div>

@@ -37,7 +37,7 @@ const Hero = () => {
       scrollTrigger: {          // ← lowercase s
         trigger: outerRef.current,
         start: "top top",
-        end: "bottom bottom",
+        end: "+=1000",
         scrub: 2,  
         pin: true,
         
@@ -84,7 +84,7 @@ const Hero = () => {
 
   return (
 
-    <div ref={outerRef} className="relative h-[200vh]"> {/* OUTER — tall, gives scroll room */}
+    <div ref={outerRef} className="relative min-h-screen"> {/* OUTER — tall, gives scroll room */}
 
       {/* STICKY — pinned, viewport height */}
       <div ref={stickyRef} className="relative top-15 h-screen overflow-hidden">
@@ -105,6 +105,8 @@ const Hero = () => {
         </div>
 
       </div>
+
+      
     </div>
   )
 }

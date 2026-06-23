@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/Components/Navbar";
+import Cursor from '@/Components/cursor';
 
 export const metadata: Metadata = {
   title: "Agrivest",
@@ -21,6 +22,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full ">
+        <Cursor/>
         <Navbar  />
         {children}
         </body>
