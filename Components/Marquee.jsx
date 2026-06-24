@@ -31,7 +31,7 @@ const Marquee = () => {
         className="overflow-hidden bg-gray-300 h-[6rem] transform  ">
             <div 
             ref={marqueeRef}
-            className="flex gap-8 whitespace-nowrap text-3xl uppercase  ">
+            className="flex gap-8 whitespace-nowrap text-3xl font-bold uppercase  ">
                 {[...items, ...items].map((item, index) => (
                     <div
                         key={index}
