@@ -1,130 +1,44 @@
-"use client"
+"use client";
 
-import { useRef, useEffect } from "react";
-import gsap from 'gsap'
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-// import { Float} from "@react-three/drei"
-import { Tomato_2 } from "./models/Tomato_2"
-import { Canvas, useFrame } from "@react-three/fiber"
-import { ContactShadows } from "@react-three/drei";
+import styles from "./styles.module.css";
 
-gsap.registerPlugin(ScrollTrigger);
+export default function ValueOfferSection({ sectionRef, stageRef }) {
+  return (
+    <section ref={sectionRef} className={styles.valueSection}>
+      <div className={styles.intro}>
+        <span className={styles.eyebrow}>A new kind of ownership</span>
+        <h2>
+          Produce is the <span>PRODUCT</span>
+        </h2>
+      </div>
 
-const ProduceTomato = ({ triggerRef }) => {
-    const tomatoRef = useRef(null);
-    const spinRef = useRef(null);
+      <div ref={stageRef} className={styles.offerStage}>
+        <article className={`${styles.copyPanel} ${styles.copyPanelLeft}`}>
+          <p className={styles.panelNumber}>01</p>
+          <h3>You don&apos;t need to own the farm.</h3>
+          <p className={styles.panelBody}>
+            Start with the harvest—not the hectares. Invest directly in the
+            produce farmers are already growing.
+          </p>
+        </article>
 
-    useFrame((state,delta)=>{
-        if(!spinRef.current) return;
+        <div className={styles.tomatoWrap} aria-hidden="true">
+          <div className={styles.backShadow} />
+        </div>
 
-        spinRef.current.rotation.y += delta*0.8
-    })
+        <article className={`${styles.copyPanel} ${styles.copyPanelRight}`}>
+          <p className={styles.panelNumber}>02</p>
+          <h3>You can own what it produces.</h3>
+          <p className={styles.panelBody}>
+            Your investment helps a real crop reach its potential—and lets you
+            participate in the value it creates.
+          </p>
+        </article>
+      </div>
 
-    useEffect(() => {
-        const tomato = tomatoRef.current;
-        const section = triggerRef.current;
-
-        if (!tomato || !section) return;
-
-        // Context cleans up this component's GSAP work on unmount
-        const ctx = gsap.context(() => {
-            const tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: section,
-                    start: "top 72%",
-                    toggleActions: "play none none reverse",
-                },
-            });
-
-            // Top-right → centre
-            tl.to(
-                tomato.position,
-                {
-                    x: 0,
-                    y: 0,
-                    z: 0,
-                    duration: 1.4,
-                    ease: "power4.out",
-                },
-                0
-            )
-                .to(
-                    tomato.scale,
-                    {
-                        x: 1,
-                        y: 1,
-                        z: 1,
-                        duration: 1.4,
-                        ease: "back.out(1.2)",
-                    },
-                    0
-                )
-                .to(
-                    tomato.rotation,
-                    {
-                        x: 0,
-                        y: 0,
-                        z: 0,
-                        duration: 1.4,
-                        ease: "power3.out",
-                    },
-                    0
-                );
-        }, section);
-
-        return () => ctx.revert();
-    }, [triggerRef]);
-
-   return (
-  <group
-    ref={tomatoRef}
-    position={[4.2, 0.02, 0]}
-    rotation={[0.4, 1.2, 0.6]}
-    scale={0.3}
-  >
-    <group ref={spinRef}>
-      <Tomato_2 scale={0.55} />
-    </group>
-  </group>
-);
+      <p className={styles.closingLine}>
+        Agriculture, made tangible. <span>One harvest at a time.</span>
+      </p>
+    </section>
+  );
 }
-
-
-
-
-const ValueOfferSection = () => {
-    const sectionRef = useRef(null);
-
-    return (
-        <section
-            ref={sectionRef}
-            className="min-h-screen overflow-hidden ">
-            <div className="font-bold lg:text-6xl place-self-center mt-10">
-                Produce is the PRODUCT
-            </div>
-            <div className="h-[420px] w-full md:h-[520px]">
-                <Canvas camera={{ position: [0, 0, 5], fov: 35 }}>
-                    <ambientLight intensity={1.2} />
-
-                    <directionalLight
-                        position={[4, 5, 4]}
-                        intensity={2.5}
-                    />
-
-                    <ProduceTomato triggerRef={sectionRef} />
-
-                    <ContactShadows
-                        position={[0, -2.4, 0]}
-                        opacity={0.35}
-                        blur={2.5}
-                        scale={4}
-                        far={4}
-                    />
-                </Canvas>
-            </div>
-        </section>
-    )
-}
-
-export default ValueOfferSection;
-

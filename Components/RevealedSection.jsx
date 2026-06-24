@@ -1,6 +1,5 @@
 import { forwardRef } from 'react'
 import Image from 'next/image';
-import Marquee from './Marquee';
 
 const RevealedSection = forwardRef(function RevealedSection(props, ref) {
     return (

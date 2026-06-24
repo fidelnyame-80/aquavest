@@ -1,0 +1,139 @@
+.section {
+  --line-color: rgba(40, 82, 11, 0.2);
+  --muted: rgba(16, 20, 13, 0.64);
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(18rem, 0.9fr) minmax(32rem, 1.1fr);
+  align-items: center;
+  min-height: 100svh;
+  overflow: hidden;
+  padding: clamp(5rem, 8vw, 8rem) clamp(1.5rem, 6vw, 6.5rem);
+  background: #fafbf8;
+  color: #10140d;
+}
+
+.section::before {
+  position: absolute;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  opacity: 0.22;
+  background-image: radial-gradient(currentColor 0.6px, transparent 0.6px);
+  background-size: 18px 18px;
+  mask-image: linear-gradient(90deg, #000, transparent 55%);
+}
+
+.tomatoField {
+  position: relative;
+  min-height: 36rem;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  width: min(100%, 45rem);
+  justify-self: end;
+}
+
+.eyebrow {
+  margin: 0 0 1rem;
+  color: #9cdb57;
+  font-size: 0.76rem;
+  font-weight: 750;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+}
+
+.content > h2 {
+  max-width: 10ch;
+  margin: 0;
+  font-size: clamp(3.25rem, 6vw, 6.7rem);
+  font-weight: 500;
+  letter-spacing: -0.07em;
+  line-height: 0.86;
+}
+
+.subhead {
+  margin: 1.2rem 0 clamp(2rem, 5vw, 4.25rem);
+  color: var(--muted);
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+}
+
+.steps {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line-color);
+}
+
+.step {
+  display: grid;
+  grid-template-columns: 4.25rem minmax(8rem, 0.75fr) minmax(12rem, 1.25fr);
+  gap: clamp(1rem, 2vw, 2rem);
+  align-items: center;
+  min-height: 6rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--line-color);
+}
+
+.number {
+  color: #9cdb57;
+  font-size: clamp(1.55rem, 2.5vw, 2.2rem);
+  font-weight: 750;
+  letter-spacing: -0.04em;
+}
+
+.step h3,
+.step p {
+  margin: 0;
+}
+
+.step h3 {
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  font-weight: 650;
+  line-height: 1.15;
+}
+
+.step p {
+  color: var(--muted);
+  font-size: clamp(0.82rem, 1vw, 0.95rem);
+  line-height: 1.45;
+}
+
+@media (max-width: 900px) {
+  .section {
+    grid-template-columns: 1fr;
+    align-content: start;
+    padding-top: 48vh;
+  }
+
+  .tomatoField {
+    position: absolute;
+    inset: 0 0 auto;
+    min-height: 48vh;
+  }
+
+  .content {
+    justify-self: center;
+  }
+}
+
+@media (max-width: 620px) {
+  .section {
+    padding: 43vh 1.2rem 4rem;
+  }
+
+  .content > h2 {
+    font-size: clamp(3.1rem, 16vw, 5rem);
+  }
+
+  .step {
+    grid-template-columns: 3rem 1fr;
+    gap: 0.65rem 1rem;
+  }
+
+  .step p {
+    grid-column: 2;
+  }
+}

@@ -1,6 +1,4 @@
 "use client"
-import styles from './styles.module.css'
-
 import { forwardRef } from 'react' //forwardRef here is so that ref can get to the child components because react blocks ref
 
 
